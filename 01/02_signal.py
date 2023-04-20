@@ -82,35 +82,39 @@ print("Initiated Alice: constant = " + str(alice.constant) + ", initial chain ke
 bob: SignalParticipant = SignalParticipant()
 print("Initiated Bob: constant = " + str(bob.constant) + ", initial chain key = " + str(bob.current_chain_key))
 
-alice_message1 = b"Cleartext Alice One"
-alice_message2 = b"Cleartext Alice One Plus One"
-bob_message1 = b"Cleartext Bob Succ(Zero)"
-bob_message2 = b"Cleartext Bob 2!"
+alice_message1: bytes = b"Cleartext Alice One"
+alice_message2: bytes = b"Cleartext Alice One Plus One"
+bob_message1: bytes = b"Cleartext Bob Succ(Zero)"
+bob_message2: bytes = b"Cleartext Bob 2!"
 
 # Alice Message 1
-encr = encrypt_message(alice_message1, alice.current_message_key)
-decr = decrypt_message(encr, alice.current_message_key)
+encr: bytes = encrypt_message(alice_message1, alice.current_message_key)
+decr: bytes = decrypt_message(encr, alice.current_message_key)
 print("Alice: Encrypted message: " + str(encr) + ", decrypted message: " + str(decr))
 alice.turn_ratchet()
-print("Alice: Ratchet turned. New chain key: " + str(alice.current_chain_key) + ", new message key: " + str(alice.current_message_key))
+print("Alice: Ratchet turned. New chain key: " + str(alice.current_chain_key) + ", new message key: " + str(
+    alice.current_message_key))
 
 # Alice Message 2
-encr = encrypt_message(alice_message2, alice.current_message_key)
-decr = decrypt_message(encr, alice.current_message_key)
+encr: bytes = encrypt_message(alice_message2, alice.current_message_key)
+decr: bytes = decrypt_message(encr, alice.current_message_key)
 print("Alice: Encrypted message: " + str(encr) + ", decrypted message: " + str(decr))
 alice.turn_ratchet()
-print("Alice: Ratchet turned. New chain key: " + str(alice.current_chain_key) + ", new message key: " + str(alice.current_message_key))
+print("Alice: Ratchet turned. New chain key: " + str(alice.current_chain_key) + ", new message key: " + str(
+    alice.current_message_key))
 
 # Bob Message 1
-encr = encrypt_message(bob_message1, bob.current_message_key)
-decr = decrypt_message(encr, bob.current_message_key)
+encr: bytes = encrypt_message(bob_message1, bob.current_message_key)
+decr: bytes = decrypt_message(encr, bob.current_message_key)
 print("Bob: Encrypted message: " + str(encr) + ", decrypted message: " + str(decr))
 bob.turn_ratchet()
-print("Bob: Ratchet turned. New chain key: " + str(bob.current_chain_key) + ", new message key: " + str(bob.current_message_key))
+print("Bob: Ratchet turned. New chain key: " + str(bob.current_chain_key) + ", new message key: " + str(
+    bob.current_message_key))
 
 # Bob Message 2
-encr = encrypt_message(bob_message2, bob.current_message_key)
-decr = decrypt_message(encr, bob.current_message_key)
+encr: bytes = encrypt_message(bob_message2, bob.current_message_key)
+decr: bytes = decrypt_message(encr, bob.current_message_key)
 print("Bob: Encrypted message: " + str(encr) + ", decrypted message: " + str(decr))
 bob.turn_ratchet()
-print("Bob: Ratchet turned. New chain key: " + str(bob.current_chain_key) + ", new message key: " + str(bob.current_message_key))
+print("Bob: Ratchet turned. New chain key: " + str(bob.current_chain_key) + ", new message key: " + str(
+    bob.current_message_key))
